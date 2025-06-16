@@ -1,12 +1,22 @@
 {
-  "name": "first-project",
+  "name": "node-js",
   "version": "1.0.0",
+  "description": "A repository to practice Node.js concepts, including Express.js, MongoDB, and APIs.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaudharysachinraj/Node-JS.git"
+  },
+  "author": "Sachin Chaudhary",
   "license": "ISC",
-  "description": ""
+  "bugs": {
+    "url": "https://github.com/chaudharysachinraj/Node-JS/issues"
+  },
+  "homepage": "https://github.com/chaudharysachinraj/Node-JS#readme",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
 }
