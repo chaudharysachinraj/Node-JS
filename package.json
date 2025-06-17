@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chaudharysachinraj/Node-JS#readme",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "express": "^5.1.0"
   }
 }
