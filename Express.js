@@ -2,15 +2,21 @@ const express = require('express');
 const app = express();
 
 app.get('',(req, res) => {
-    res.send('Hello, This is Home Page');
+    res.send('<h1>Hello, This is Home Page</h1>');
 });
 
 app.get('/about',(req, res) => {
-    res.send('Hello, this is About Page');
+    res.send(`
+        <input type="text" placeholder="Enter your name" />
+        <button>Click Me</button>
+        `);
 });
 
 app.get('/help',(req, res) => {
-    res.send('Hello, this is Help us Page');
+    res.send({
+        name:'Sachin',
+        email:'sachin@gmail.com'
+    });
 });
 
 app.listen(5000);
