@@ -1,1 +1,4 @@
-Myntra app
+{
+  "product": "jeans",
+  "budget": "199"
+}
