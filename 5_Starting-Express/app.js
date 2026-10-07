@@ -8,42 +8,43 @@ app.use((req, res, next) => {
   console.log("Request Recived", req.url, req.method);
   next();
 });
-
+  
 app.get("/", (req, res, next) => {
-  res.send(`
-    <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Myntra</title>
-          </head>
+  // res.send(`
+  //   <!DOCTYPE html>
+  //       <html lang="en">
+  //         <head>
+  //           <meta charset="UTF-8">
+  //           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  //           <title>Myntra</title>
+  //         </head>
   
-          <body>
-            <h1>Welcome, Please enter your preference</h1>
+  //         <body>
+  //           <h1>Welcome, Please enter your preference</h1>
   
-            <form action="/buy-product" method="POST">
+  //           <form action="/buy-product" method="POST">
   
-              <input
-                type="text"
-                placeholder="Enter the product that you want"
-                name="product"
-                required
-              >
+  //             <input
+  //               type="text"
+  //               placeholder="Enter the product that you want"
+  //               name="product"
+  //               required
+  //             >
   
-              <input
-                type="number"
-                placeholder="Enter Your budget"
-                name="budget"
-                required
-              >
+  //             <input
+  //               type="number"
+  //               placeholder="Enter Your budget"
+  //               name="budget"
+  //               required
+  //             >
   
-              <input type="submit" value="Buy Product">
+  //             <input type="submit" value="Buy Product">
   
-            </form>
-          </body>
-        </html>
-      `);
+  //           </form>
+  //         </body>
+  //       </html>
+  //     `);
+//  next();
 });
 
 
@@ -86,7 +87,7 @@ app.post("/buy-product", (req, res, next) => {
 
 
 app.get("/products", (req, res, next) => {
-  `
+ res.send(`
     <!DOCTYPE html>
       <html lang="en">
         <head>
@@ -98,7 +99,7 @@ app.get("/products", (req, res, next) => {
           <p>Your product preference has been received.</p>
         </body>
     </html>
-    `
+    `)
 });
 
 
