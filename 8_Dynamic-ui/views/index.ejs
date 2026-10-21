@@ -1,0 +1,17 @@
+<%- include('partials/head')%>
+</head>
+<body>
+    <%- include('partials/nav')%>
+
+    <main>
+        <h1>Welcome to Hamara airbnb</h1>
+
+        <ul>
+            <% homes.forEach(home => { %>
+                <li><%= home.houseName %></li>
+            <% }); %>
+        </ul>
+    </main>
+
+</body>
+</html>
