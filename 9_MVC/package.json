@@ -1,0 +1,28 @@
+{
+  "name": "airbnb",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --minify",
+    "watch:css": "tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch",
+    "dev": "concurrently -k \"npm:watch:css\" \"nodemon app.js\"",
+    "prestart": "npm run build:css",
+    "start": "node app.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "concurrently": "^10.0.6",
+    "nodemon": "^3.1.14",
+    "tailwindcss": "^4.3.3"
+  },
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "ejs": "^7.0.2",
+    "express": "^5.2.1"
+  }
+}
