@@ -31,10 +31,21 @@ exports.postAddFavourites = (req, res, next) => {
     if (error) {
       console.error("Error while adding to favourites:", error);
     }
-    res.redirect("favourites");
+    res.redirect("/favourites");
   });
-
 };
+
+
+exports.postRemoveFavourite = (req, res, next) => {
+  const homeId = req.params.homeId;
+  Favourite.deleteById(homeId, error => {
+    if (error) {
+      console.error("Error while removing from favourites:", error);
+    }
+    res.redirect("/favourites");
+  }); 
+} 
+
 
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeIdentity;

@@ -20,6 +20,10 @@
                             <p class="text-lg font-bold text-slate-900">₹<%= home.price %> <span class="text-sm font-normal text-slate-500">/ night</span></p>
 
                             <a href="/homes/<%= home.id %>" class="rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">Details</a>
+
+                            <form action="/favourites/delete/<%= home.id %>" method="post">
+                                <button type="submit" class="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Remove</button>
+                            </form>
                         </div> 
                     </div>
                 </li>
