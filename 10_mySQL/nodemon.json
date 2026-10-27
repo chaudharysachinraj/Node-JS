@@ -1,0 +1,17 @@
+{
+  "watch": [
+    "app.js",
+    "controllers/",
+    "models/",
+    "routers/",
+    "util/",
+    "data/"
+  ],
+  "ext": "js,json,ejs",
+  "ignore": [
+    "node_modules",
+    "public/styles/output.css",
+    "data/*"
+  ],
+  "exec": "node app.js"
+}
