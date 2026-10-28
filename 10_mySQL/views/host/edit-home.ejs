@@ -42,6 +42,11 @@
                                 value="<%= editing ? home.photoUrl : '' %>"
                                 name="photoUrl" placeholder="Enter your home's photo URL"
                                 >
+                             <textarea
+                                class="w-full rounded-xl border border-slate-300  px-4 py-3 text-slate-900 shadow-sm" 
+                                value="<%= editing ? home.description : '' %>"
+                                name="description" placeholder="Enter your home's description"
+                                ></textarea>
                         </div>
                         <button
                             class="inline-flex w-full items-center justify-center rounded-xl bg-rose-600 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 sm:w-auto"

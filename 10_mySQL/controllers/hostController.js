@@ -12,7 +12,8 @@ exports.getEditHome = (req, res, next) => {
       return res.redirect("/host/host-homes");
     }  
   
-  Home.findById(homeId, (home) => {
+  Home.findById(homeId).then(([homes]) => {
+    const home = homes[0];
     if (!home) {
       console.log("Home not found for editing");
       return res.redirect("/host/host-homes");
@@ -27,21 +28,21 @@ exports.getEditHome = (req, res, next) => {
 };
 
 exports.postAddHome = (req, res, next) => {
-  const { houseName, price, location, rating, photoUrl } = req.body;
-  const newHome = new Home(houseName, price, location, rating, photoUrl);
+  const { houseName, price, location, rating, photoUrl, description } = req.body;
+  const newHome = new Home(houseName, price, location, rating, photoUrl, description);
 
-  newHome.save((error) => {
-    if (error) {
-      res.redirect("/");
-    } else {
-      res.render("host/home-added", { pageTittle: "Home Added" });
-    }
+  newHome.save().then(([rows]) => {
+    res.render("host/home-added", {
+      // home: newHome,
+      // editing: false, 
+      pageTittle: "Home Hosted"
+    });
   });
 };
 
 exports.postEditHome = (req, res, next) => {
-  const { id, houseName, price, location, rating, photoUrl } = req.body;
-  const newHome = new Home(houseName, price, location, rating, photoUrl);
+  const { id, houseName, price, location, rating, photoUrl, description } = req.body;
+  const newHome = new Home(houseName, price, location, rating, photoUrl, description);
   newHome.id = id; // Assign the existing home ID to the newHome instance
   newHome.save((error) => {
     if (error) {
@@ -54,34 +55,17 @@ exports.postEditHome = (req, res, next) => {
 
 exports.postDeleteHome = (req, res, next) => {
   const homeId = req.params.homeId;
-  Home.DeleteById(homeId, (error) => {
-    if (error) {
-      console.log("Error deleting home:", error);
-    }
+  Home.DeleteById(homeId).then(() => {
     res.redirect("/host/host-homes");
   });
 }
 
 
 exports.getHostHomes = (req, res, next) => {
-  Home.fetchAll((registeredHomes) => {
+  Home.fetchAll().then(([registeredHomes]) => { 
     res.render("host/host-homes", {
       pageTittle: "Host Homes",
       homes: registeredHomes,
     });
   });
 };
-
-// _____________________________________________________________
-// const {houseName, price, location, rating, photoUrl} = req.body;
-//                or
-// -----------------------------------------------
-// const {houseName} = req.body;
-//              or
-// const houseName = req.body.houseName;
-// const price = req.body.price;
-// const location = req.body.location;
-// const rating = req.body.rating;
-// const photoUrl = req.body.photoUrl;
-// -----------------------------------------------
-// _____________________________________________________________
