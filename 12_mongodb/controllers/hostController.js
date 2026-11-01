@@ -12,8 +12,7 @@ exports.getEditHome = (req, res, next) => {
       return res.redirect("/host/host-homes");
     }  
   
-  Home.findById(homeId).then(([homes]) => {
-    const home = homes[0];
+  Home.findById(homeId).then(home => {
     if (!home) {
       console.log("Home not found for editing");
       return res.redirect("/host/host-homes");
@@ -32,9 +31,7 @@ exports.postAddHome = (req, res, next) => {
   const newHome = new Home(houseName, price, location, rating, photoUrl, description);
 
   newHome.save().then((rows) => {
-    res.render("host/home-added", {
-      pageTittle: "Home Hosted"
-    });
+    res.redirect("/host/host-homes");
   });
 };
 
@@ -60,7 +57,7 @@ exports.postDeleteHome = (req, res, next) => {
 
 
 exports.getHostHomes = (req, res, next) => {
-  Home.fetchAll().then(([registeredHomes]) => { 
+  Home.fetchAll().then(registeredHomes => { 
     res.render("host/host-homes", {
       pageTittle: "Host Homes",
       homes: registeredHomes,

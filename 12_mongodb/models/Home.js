@@ -1,5 +1,5 @@
-const Favourite = require('./favourite');
 const { getDb } = require('../util/database-util');
+const { ObjectId } = require('mongodb');
 
 
 
@@ -24,19 +24,19 @@ module.exports = class Home {
 
 
     static fetchAll(){     
+        const db = getDb();
+        return db.collection('homes').find().toArray();
+    }
+
+
+    static findById(homeId){
         
     }
 
 
-    static findById(homeId, callback){
+    static DeleteById(homeId){
        
     }
-
-    
-    static DeleteById(homeId, callback){
-
-    }
 }
-
 
 
