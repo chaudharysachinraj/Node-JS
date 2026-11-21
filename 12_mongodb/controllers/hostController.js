@@ -37,15 +37,13 @@ exports.postAddHome = (req, res, next) => {
 
 exports.postEditHome = (req, res, next) => {
   const { id, houseName, price, location, rating, photoUrl, description } = req.body;
-  const newHome = new Home(houseName, price, location, rating, photoUrl, description);
-  newHome.id = id; // Assign the existing home ID to the newHome instance
-  newHome.save((error) => {
+  const newHome = new Home(houseName, price, location, rating, photoUrl, description, id);
+  newHome.save().then(error => {
     if (error) {
-      console.log("Error saving edited home:", error);
-    } else {
-      res.redirect("/host/host-homes");
+      console.log("Error saving edited home:", error)
     }
-  });
+      res.redirect("/host/host-homes")
+  })
 }
 
 exports.postDeleteHome = (req, res, next) => {

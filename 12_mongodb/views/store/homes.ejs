@@ -19,7 +19,7 @@
                         <div class="mt-4 flex items-center justify-between gap-3">
                             <p class="text-lg font-bold text-slate-900">₹<%= home.price %> <span class="text-sm font-normal text-slate-500">/ night</span></p>
 
-                            <a href="/homes/<%= home.id %>" class="rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">Details</a>
+                            <a href="/homes/<%= home._id %>" class="rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2">Details</a>
                         </div>
                         <%- include('../partials/add-to-favourite', { home: home }) %>
                     </div>

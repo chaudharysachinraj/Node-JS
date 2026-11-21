@@ -23,7 +23,7 @@ exports.getFavourites = (req, res, next) => {
   Favourite.fetchAll(favouriteIds => {
     Home.fetchAll().then(registeredHomes => { 
 
-      const favouriteHomes = registeredHomes.filter(home => favouriteIds.includes(home.id));
+      const favouriteHomes = registeredHomes.filter(home => favouriteIds.includes(home._id));
       
       res.render("store/favourites", { homes: favouriteHomes, pageTittle: 'Favourites' }); 
     });
