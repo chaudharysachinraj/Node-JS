@@ -6,3 +6,7 @@ db.students.insertOne({
     city: "Gurgaon"
 });
 
+
+// 2. Read (Find Data)
+// Find all students
+db.students.find(); 
