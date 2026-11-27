@@ -12,6 +12,15 @@ db.students.insertMany([
     { name: "Aman", age: 22, course: "BBA" }
 ]);
 
+// 3. Update (Modify Data)
+// Update a single document
+db.students.updateOne(
+    { name: "Sachin" },
+    { $set: { age: 21 } }
+);
+
+
+
 
 // 2. Read (Find Data)
 // Find all students
